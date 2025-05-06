@@ -1,0 +1,24 @@
+.jumbotron {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-color: #140609;
+}
+
+#about {
+  padding-top: 4rem;
+}
+
+#portfolio {
+  padding-top: 4rem;
+  background-color: #140609;
+}
+
+#contact {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+footer {
+  padding-top: 2rem;
+  background-color: #140609;
+}

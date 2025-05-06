@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabila Marsya Putri Inara</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f8f4;
+      color: #4a4a44;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #fde7e3;
+      color: #5b6b52;
+      padding: 1rem 1.5rem 2.5rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(93, 136, 108, 0.2);
+      position: static;
+      top: auto;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      header {
+        position: static;
+      }
+    }
+    header img {
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(1px 1px 2px rgba(92, 109, 73, 0.4));
+      flex-shrink: 0;
+    }
+    header .header-text {
+      flex-grow: 1;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+    }
+    header .header-text h1 {
+      margin: 0.3rem 0 0.1rem;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #5b6b52;
+    }
+    header .header-text p {
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #7a8c5f;
+      margin-bottom: 1rem;
+    }
+    .cv-button {
+      background-color: #a6bc8d;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      user-select: none;
+    }
+    .cv-button:hover,
+    .cv-button:focus {
+      background-color: #8ca36c;
+      outline: none;
+    }
+    .nav-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #5b6b52;
+      padding: 0.25rem 0.5rem;
+      transition: transform 0.3s ease;
+      z-index: 1100;
+    }
+    .nav-toggle:focus {
+      outline: 2px solid #a6bc8d;
+      outline-offset: 2px;
+    }
+
+    nav {
+      position: absolute;
+      top: 100%;
+      right: 1.5rem;
+      background: #fde7e3;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      max-height: 0;
+      width: 180px;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 0;
+      visibility: hidden;
+    }
+    nav.open {
+      max-height: 500px;
+      padding: 0.75rem 0;
+      visibility: visible;
+    }
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .nav-links li a {
+      display: block;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      color: #7a8c5f;
+      font-weight: 600;
+      border-left: 4px solid transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .nav-links li a:hover,
+    .nav-links li a:focus {
+      background-color: #a6bc8d;
+      color: white;
+      border-left-color: #8ca36c;
+      outline: none;
+    }
+
+    /* Responsive - for smaller devices */
+    @media (max-width: 50px) {
+      header {
+        padding: 1rem 1rem 2rem 1rem;
+      }
+      nav {
+        right: 1rem;
+        width: 150px;
+      }
+    }
+
+    .intro {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #556b4d;
+    }
+    .section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section h2 {
+      color: #9cae87;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .highlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .card {
+      background: #e7f0de;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(139, 168, 123, 0.3);
+      max-width: 250px;
+      text-align: center;
+      color: #364926;
+      font-weight: 500;
+    }
+    .card h3 {
+      color: #7a8c5f;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .contact {
+      background: #fbf7f2;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .contact h2 {
+      color: #92a287;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+    }
+    .contact input, .contact textarea {
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border: 1px solid #c8d6bc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #f9fdf7;
+      color: #556b4d;
+      transition: border-color 0.3s ease;
+    }
+    .contact input:focus, .contact textarea:focus {
+      border-color: #9cae87;
+      outline: none;
+      background: #ffffff;
+    }
+    .contact input[type="submit"] {
+      background: #a6bc8d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    .contact input[type="submit"]:hover {
+      background: #8ca36c;
+    }
+    footer {
+      background: #556b4d;
+      color: #f0f0e0;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    @media (max-width: 80px) {
+      .highlight {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/its.png" alt="ITS Logo Icon" />
+    <div class="header-text">
+      <h1>Hello, I'm Nabila Marsya Putri Inara</h1>
+      <p>An enthusiastic student passionate about communication, event planning, and creativity.</p>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">&#9776;</button>
+    <nav id="primary-navigation" aria-hidden="true">
+      <ul class="nav-links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="intro" id="top">
+    <p>Welcome to my personal landing page! I’m a Business Statistics undergraduate student at Institut Teknologi Sepuluh Nopember (ITS), with experiences in public relations, finance, and creative development. Let’s connect and collaborate on impactful projects together!</p>
+      <a href="curriculum-vitae.pdf" target="_blank" rel="noopener" class="cv-button">Curriculum Vitae</a>
+  </section>
+
+  <section class="section" id="highlights">
+    <h2>My Highlights</h2>
+    <div class="highlight">
+      <div class="card">
+        <h3>Public Relations & Communication</h3>
+        <p>Experienced in managing external communications, media relations, and social media strategy.</p>
+      </div>
+      <div class="card">
+        <h3>Event & Organizational Roles</h3>
+        <p>Actively involved in planning and executing campus events, handling both operational and creative roles.</p>
+      </div>
+      <div class="card">
+        <h3>Finance & Administration</h3>
+        <p>Handled financial reports and budgeting in several organizational committees and academic projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Nabila Marsya Putri Inara | Business Statistics, Institut Teknologi Sepuluh Nopember</p>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-navigation');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      nav.setAttribute('aria-hidden', !isOpen);
+      if (isOpen) {
+        nav.querySelector('a').focus();
+      }
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+        nav.setAttribute('aria-hidden', true);
+      });
+    });
+  </script>
+</body>
+</html>
